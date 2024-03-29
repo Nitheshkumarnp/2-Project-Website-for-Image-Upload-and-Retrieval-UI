@@ -9,7 +9,7 @@ function App() {
     formData.append('image', file);
 
     try {
-      const response = await fetch('/upload', {
+      const response = await fetch('https://service-image-upload-retrieval.onrender.com/upload', {
         method: 'POST',
         body: formData,
       });
@@ -22,17 +22,18 @@ function App() {
 
   const handleGetImages = async () => {
     try {
-      const response = await fetch('/images');
-      const data = await response.json();
-      setImages(data);
+      const response = await fetch('https://service-image-upload-retrieval.onrender.com/images?id=13');
+      //const data = await response.json();
+      const blob = await response.blob();
+      setImages(blob);
     } catch (error) {
       console.error('Get images error:', error);
     }
   };
 
-  useEffect(() => {
-    handleGetImages(); // Fetch images on initial load
-  }, []);
+  // useEffect(() => {
+  //   handleGetImages(); // Fetch images on initial load
+  // }, []);
 
   return (
     <div>
