@@ -22,7 +22,7 @@ function App() {
 
   const handleGetImages = async () => {
     try {
-      const response = await fetch('https://service-image-upload-retrieval.onrender.com/images?id=13');
+      const response = await fetch('https://service-image-upload-retrieval.onrender.com/images?id=17');
       //const data = await response.json();
       const blob = await response.blob();
       setImages(blob);
