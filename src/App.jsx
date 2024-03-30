@@ -23,7 +23,9 @@ function App() {
   const handleGetImages = async () => {
     try {
       const response = await fetch('https://service-image-upload-retrieval.onrender.com/images?id=17');
-      //const data = await response.json();
+      if (!response.ok) {
+          throw new Error('Failed to fetch image');
+      }
       const blob = await response.blob();
       setImages(blob);
     } catch (error) {
