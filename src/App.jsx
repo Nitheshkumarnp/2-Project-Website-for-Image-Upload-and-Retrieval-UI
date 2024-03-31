@@ -26,8 +26,8 @@ function App() {
       if (!response.ok) {
           throw new Error('Failed to fetch image');
       }
-      const blob = await response.blob();
-      setImages(blob);
+      const data = await response;
+      setImages(data);
     } catch (error) {
       console.error('Get images error:', error);
     }
